@@ -21,13 +21,11 @@
     dialogElement.showModal();
   };
 
-  window[handlerName] = async (event) => {
+  window[handlerName] = (event) => {
     const targetTestElement = event.target.closest('[data-testid]');
 
     if (event.shiftKey && targetTestElement) {
-      event.preventDefault();
       event.stopImmediatePropagation();
-      event.stopPropagation();
 
       const trace = [];
       let currentElement = targetTestElement;
@@ -49,7 +47,7 @@
   if (document.getElementById(stylesId)) {
     document.getElementById(stylesId).remove();
 
-    if (window[handlerName]) window.removeEventListener('click', window[handlerName]);
+    if (window[handlerName]) document.removeEventListener('click', window[handlerName]);
   } else {
     const styleElement = document.createElement('style');
 
@@ -58,6 +56,6 @@
 
     document.head.prepend(styleElement);
 
-    if (window[handlerName]) window.addEventListener('click', window[handlerName]);
+    if (window[handlerName]) document.addEventListener('click', window[handlerName], true);
   }
 })();
