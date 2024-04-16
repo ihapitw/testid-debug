@@ -7,7 +7,7 @@
   const createDialog = (content) => {
     const dialogElement = document.createElement('dialog');
 
-    dialogElement.style = 'padding: 12rem; font-size: 12px;';
+    dialogElement.style = 'padding: 12px; font-size: 12px;';
 
     dialogElement.innerHTML = `
       <p style="font-family: monospace;">${content}</p>
