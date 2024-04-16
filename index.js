@@ -25,6 +25,7 @@
     const targetTestElement = event.target.closest('[data-testid]');
 
     if (event.shiftKey && targetTestElement) {
+      event.preventDefault();
       event.stopImmediatePropagation();
 
       const trace = [];
