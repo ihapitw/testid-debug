@@ -27,6 +27,7 @@
     if (event.shiftKey && targetTestElement) {
       event.preventDefault();
       event.stopImmediatePropagation();
+      event.stopPropagation();
 
       const trace = [];
       let currentElement = targetTestElement;
